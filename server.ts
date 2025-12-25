@@ -463,10 +463,7 @@ app.get(
             <span class="text-xs text-slate-500 font-normal ml-auto">Live Preview</span>
           </h2>
           <div class="relative">
-            <pre id="curlExample" class="p-4 bg-slate-900/70 rounded-xl text-xs font-mono text-slate-400 overflow-x-auto whitespace-pre-wrap break-all">curl -X POST http://localhost:8080/webhook \
-          -H "Content-Type: application/json" \
-          -H "x-signature: YOUR_JWT_TOKEN" \
-          -d '{"event":"user.created","data":{}}'</pre>
+            <pre id="curlExample" class="p-4 bg-slate-900/70 rounded-xl text-xs font-mono text-slate-400 overflow-x-auto whitespace-pre-wrap break-all">Loading cURL example…</pre>
             
             <!-- Action Buttons -->
             <div class="absolute top-2 right-2 flex gap-1">
@@ -514,6 +511,12 @@ app.get(
     // Cached JWT token for cURL example
     // Fetched on page load and refreshed periodically
     let cachedToken = 'YOUR_JWT_TOKEN';
+
+    // Base URL for API requests
+    // Automatically resolves to:
+    // - http://localhost:8080 (local)
+    // - https://<your-app>.onrender.com (Render)
+    const baseUrl = window.location.origin;
     
     // =========================================================================
     // PRESET CONFIGURATIONS
@@ -591,7 +594,7 @@ app.get(
       const jsonPayload = JSON.stringify(body);
       
       // Build cURL command with real token
-      const curlCommand = \`curl -X POST http://localhost:8080/webhook \\
+      const curlCommand = \`curl -X POST \${baseUrl}/webhook \\
       -H "Content-Type: application/json" \\
       -H "x-signature: \${cachedToken}" \\
       -d '\${jsonPayload}'\`;
