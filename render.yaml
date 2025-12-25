@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: nodejs-webhook-gateway-elysia
+    env: node
+    plan: free
+    buildCommand: |
+      npm install
+      npm run build
+    startCommand: npm start

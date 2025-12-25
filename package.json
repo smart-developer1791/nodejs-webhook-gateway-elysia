@@ -1,0 +1,27 @@
+{
+  "name": "nodejs-webhook-gateway-elysia",
+  "version": "1.0.0",
+  "description": "Minimal webhook receiver and processor using Elysia, supporting signature validation, retries, and event-driven queues",
+  "type": "module",
+  "main": "dist/server.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "dev": "ts-node server.ts"
+  },
+  "keywords": ["nodejs", "elysia", "webhook", "receiver", "typescript", "queues", "signature", "retry"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@elysiajs/html": "^1.4.0",
+    "@elysiajs/node": "^1.4.2",
+    "elysia": "^1.4.19",
+    "jsonwebtoken": "^9.0.3"
+  },
+  "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^24.10.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}
